@@ -12,15 +12,19 @@ class Post extends Component {
       <Comment body={this.props.comments[2]} />
     ]
 
-    let allAuthors = [
-      <Author body={this.props.authors[0]} />,
-      <Author body={this.props.authors[1]} />,
-      <Author body={this.props.authors[2]} />
-    ]
+    let allAuthors = <Author author={
+      this.props.authors.map((author) =>
+       <li key={author.id}>
+        Written by: {author}
+       </li>
+      )
+    }/>
+
+
     return (
       <div>
         <h1>{this.props.title}</h1>
-        <h4><Author body={allAuthors}/></h4>,
+        <h4><Author author={allAuthors}/></h4>,
         {this.props.body}
         <h3>Comments:</h3><Comment body={allComments}/>
       </div>
