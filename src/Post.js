@@ -16,6 +16,8 @@ class Post extends Component {
   }
 
   changeBody = e => {
+    //prompt is not a good idea in production
+    //users don't like pop ups
     let newBody = prompt("Put some text for the body")
     this.setState({
       body: newBody
@@ -28,6 +30,8 @@ class Post extends Component {
       updatedValue});
 
   }
+
+
 
   render() {
     let allComments = [
@@ -51,7 +55,7 @@ class Post extends Component {
         {this.state.body}
         <p>{JSON.stringify(this.state.fields, null, 2)}</p>
 
-        <div><button onClick={(e) => this.changeBody(e)}>Change Body!</button></div>
+        <div><button onClick={(e) => this.changeBody(e)}>Edit Body!</button></div>
         <Form form onChange={fields=> this.onChange(fields)}/>
         <h3>Comments:</h3><Comment body={allComments}/>
       </div>

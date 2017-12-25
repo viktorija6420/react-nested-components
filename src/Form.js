@@ -3,13 +3,6 @@ import React, { Component } from 'react';
 
 class Form extends Component{
 
-  // constructor (props){
-  //   super(props)
-  //   this.state = {
-  //     body: ""
-  //   }
-  // };
-
   state={
     body:""
   };
@@ -23,11 +16,12 @@ class Form extends Component{
 
   onSubmit= e => {
     e.preventDefault();
-    // this.props.onSubmit(this.state);
     this.setState({
       body: ""
-    })
-  }
+    });
+    //if you want to clear after submitting use this
+    // this.props.onChange()
+  };
 
   render(){
 
@@ -45,8 +39,6 @@ class Form extends Component{
       <button onClick={e => this.onSubmit(e)}>Submit</button>
 
     </form>
-    //input field
-    //submit button callback onSubmit
     );
   }
 }
